@@ -16,7 +16,7 @@ My method involves using circles to represent all possible angle configurations 
 
 > Visual representation. Demonstrates how a circle can be made to represent all endpoints of an arm segment when revolved around a point.
 
-From here, you can imagine that if we could find two points on the two circles that are exactly the length of the second segment, we could use inverse trigonometric functions to determine the angle from the x-axis to such a point. 
+From here, you can imagine that if we could find two points on the two circles that are exactly the length of the second segment apart, we could use inverse trigonometric functions to determine the angle from the x-axis to such a point. 
 
 <img src="exampleimage2.jpg">
 
@@ -32,6 +32,8 @@ From here, simply calculate the intersection of these circles, then use inverse 
 
 For simplicity sake, I did not use $x^2+y^2 = r^2$ in my actual implementation, but rather the semicircle function, $f(x)=\sqrt{r^2-x^2}$. This has the added benefit of meaning that I will not have to deal with negative results later.
 
+Afterwards, add the second dimension back in. Use trigonometry to find the angle required to place your current end effector location over the desired one in 2D space (You can imagine abstracting the arm into just one line, that runs between the shoulder and then hand, and from here just finding the angle this line needs to be at in order for the end to touch a specific point (it is of course guaranteed to be the correct length)). Do the same for the 3rd dimension, and the 4th if you are an alien of some sort (in which case you should email me so we can talk.) 
+
 This specific approach does **not** fully work in the case that your first and last segments are not the same size (and in fact does not fully work when they are, either). Consider two points on the tops of two differently sized circles. These points could be exactly $s_2$ (where $s_2$ is the length of segment 2) from each other, but they will never intersect if you only move the circle along the x-axis. This means that there can be combinations that are not found by this approach, thereby limiting the actual usefulness of the idea as a whole. If you have a way around this (*i.e.* know how to find a pair of points on two circles that are exactly $s_2$ apart from each other,) please let me know (reilley.pfrimmer@gmail.com)
 
 ### Alternative Approaches I Have Tried
@@ -43,3 +45,5 @@ This specific approach does **not** fully work in the case that your first and l
 
 ## Everything else
 *Coming soon!*
+
+I am very lazy.
